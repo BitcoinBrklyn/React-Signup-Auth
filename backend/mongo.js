@@ -1,13 +1,15 @@
 const mongoose = require("mongoose");
+require("dotenv").config(); // Load environment variables from .env file
+
+const uri = process.env.MONGODB_URI; // Use the environment variable
+
 mongoose
-  .connect(
-    "mongodb+srv://bitcoinbrklyn:iyegang718@cluster0.0iwo0sk.mongodb.net/reactsignup?retryWrites=true&w=majority"
-  )
+  .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("mongodb connected");
   })
-  .catch(() => {
-    console.log("failed");
+  .catch((err) => {
+    console.error("MongoDB connection error:", err);
   });
 
 const newSchema = new mongoose.Schema({
