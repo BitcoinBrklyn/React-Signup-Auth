@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-
+import { Card, Form, Button, Container } from "react-bootstrap";
 function Signup() {
   const history = useNavigate();
 
@@ -34,32 +34,36 @@ function Signup() {
   }
 
   return (
-    <div className="login">
-      <h1>Signup</h1>
-
-      <form action="POST">
-        <input
-          type="email"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-          placeholder="Email"
-        />
-        <input
-          type="password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-          placeholder="Password"
-        />
-        <input type="submit" onClick={submit} />
-      </form>
-
-      <br />
-      <p>OR</p>
-      <br />
-
-      <Link to="/">Login Page</Link>
+    <div className="signup-container">
+      <div className="signup-background"></div>
+      <Container className="signup-card-container">
+        <Card className="signup-card">
+          <Card.Body>
+            <Card.Title>Signup</Card.Title>
+            <Form onSubmit={submit}>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Control
+                  type="email"
+                  placeholder="Email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                Sign Up
+              </Button>
+            </Form>
+            <p className="mt-3">OR</p>
+            <Link to="/">Login Page</Link>
+          </Card.Body>
+        </Card>
+      </Container>
     </div>
   );
 }
