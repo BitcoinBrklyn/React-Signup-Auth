@@ -34,34 +34,37 @@ function Login() {
   }
 
   return (
-    <div className="login">
-      <h1>Login</h1>
-
-      <form action="POST">
-        <input
-          type="email"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-          placeholder="Email"
-        />
-        <input
-          type="password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-          placeholder="Password"
-        />
-        <input type="submit" onClick={submit} />
-      </form>
-
-      <br />
-      <p>OR</p>
-      <br />
-
-      <Link to="/signup">Signup Page</Link>
+    <div className="login-container">
+      <div className="login-background"></div>
+      <div className="login-form">
+        <h1 className="mb-4">Login</h1>
+        <form onSubmit={submit}>
+          <div className="mb-3">
+            <input
+              type="email"
+              className="form-control"
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="password"
+              className="form-control"
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Log In
+          </button>
+        </form>
+        <p className="mt-3">OR</p>
+        <Link to="/signup" className="mt-3">
+          Create an Account
+        </Link>
+      </div>
     </div>
   );
 }
-
 export default Login;
