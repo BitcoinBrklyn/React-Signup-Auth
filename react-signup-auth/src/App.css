@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+/* App.css */
+.square {
+  /* Increase font-size */
+  font-size: 24px; /* You can adjust the value to your desired size */
+
+  /* Additional styling if needed */
+  /* For example, changing background color or adding padding */
+  background-color: #f0f0f0;
+  padding: 20px;
+  
+  /* Add any other styles you want */
+}
